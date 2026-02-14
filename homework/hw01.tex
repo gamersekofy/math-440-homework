@@ -1,0 +1,110 @@
+\begin{center}
+	\section*{Homework 01 - 2.2, 2.3}
+	Due Feb 13 \\
+	Uzair Hamed Mohammed
+\end{center}
+
+%12, 16, 22, 38
+%10, 12, 14
+
+\subsection*{2.2: Sample Spaces and the Algebra of Sets}
+
+\begin{enumerate}
+	\item[12.] Consider the experiment of choosing coefficients for the quadratic equation \( ax^2 + bx + c = 0 \). Characterize the values of \(a, b\), and \(c\) associated with the event A: Equation has complex roots.
+	
+		\underline{Sol}: 
+		\[
+			\begin{aligned}
+				\textrm{Sample space } S: \lbrace a, b, c \in \mathbb{R} \rbrace \\
+				\textrm{Complex roots occur when discriminant } \boxed{b^2 -4ac < 0}
+			\end{aligned}
+		\]
+	
+	\item[16.] Sketch the regions in the xy-plane corresponding to \(A \cup B\) and \(A \cap B\) if 
+		\[
+			A = \lbrace (x, y): 0 < x < 3, 0 < y < 3 \rbrace
+		\]
+		
+		and
+		
+		\[
+			B = \lbrace (x, y): 2 < x < 4, 2 < y < 4 \rbrace
+		\]
+		
+		\underline{Sol}: \vspace{2.0in}
+	
+	\item[22.] Suppose that each of the twelve letters in the word 
+		\[
+			T \ E \ S \ S \ E \ L \ L \ A \ T \ I \ O \ N
+		\]
+		
+		is written on a chip. Define the events F, R and C as follows:
+			\begin{itemize}
+				\item[F: ] letters in first half of alphabet
+				\item[R: ] letters that are repeated
+				\item[V: ] letters that are vowels
+			\end{itemize}
+		Which chips make up the following events? 
+			\begin{enumerate}
+				\item[a.] \(F \cap R \cap V\)
+				\item[b.] \(F^C \cap R \cap V^C\)
+				\item[c.] \(F \cap R^C \cap V\)
+			\end{enumerate}
+
+		\underline{Sol}:
+		\[
+			\begin{aligned}
+				F &= \lbrace A, E, I, L \rbrace \\
+				R &= \lbrace E, I, L, S, T \rbrace \\
+				V &= \lbrace A, E, I, O \rbrace
+			\end{aligned}
+		\]
+		\begin{enumerate}
+			\item \(F \cap R \cap V = \boxed{\lbrace E, I \rbrace}\)
+			
+			\item \(F^C \cap R \cap V^C = \boxed{\lbrace S, T \rbrace}\)
+			
+			\item \(F \cap R^C \cap V = \boxed{\lbrace A \rbrace}\)
+		\end{enumerate}
+		
+	\item[38.] Let A, B, C be any three events defined on a sample space S. Let \(N(A), N(B), N(C), N(A \cap B), N(A \cap C), N(B \cap C), N(A \cap B \cap C)\) denote the numbers of outcomes in all the different intersections in which A, B, and C are involved. Use a Venn diagram to suggest a formula for \(N(A \cup B \cup C)\).
+	
+		\underline{Sol}:
+		\[
+			N(A \cup B \cup C) = \boxed{N(A) + N(B) + N(C) - N(A \cap B) - N(A \cap C) - N(B \cap C) + N(A \cap B \cap C)}
+		\]
+\end{enumerate}
+
+\subsection*{2.3: The Probability Function}
+
+\begin{enumerate}
+	\item[10.] An urn contains twenty-four chips, numbered 1 through 24. One is drawn at random. Let A be the event that the number is divisible by 2 and let B be the event that the number is divisible by 3. Find \(P(A \cup B)\).
+	
+		\underline{Sol}:
+		\[
+			\begin{aligned}
+				P(A \cup B) &= P(A) + P(B) - P(A \cap B) \\
+				&= \frac{12}{24} + \frac{8}{24} - \frac{4}{24} \\
+				&= \frac{16}{24} \\
+				&= \boxed{\frac{2}{3}}
+			\end{aligned}
+		\]
+	
+	\item[12.] Events \(A_1\) and \(A_2\) are such that \(A_1 \cup A_2 = S\) and \(A_1 \cap A_2 = \emptyset\). Find \(p_2\) if \(P(A_1) = p_1, P(A_2) = p_2\), and \(3p_1 - p_2 = \frac{1}{2}\).
+	
+		\underline{Sol}:
+		\[
+			\boxed{p_1 = \frac{3}{8}, p_2 = \frac{5}{8}}
+		\]
+	
+	\item[14.] Three events- A, B, C- are defined on a sample space S. Given that \(P(A) = 0.2, P(B) = 0.1 \), and \(P(C) = 0.3\), what is the smallest possible value for \(P \lbrack (A \cup B \cup C)^C \rbrack \)?
+	
+		\underline{Sol}:
+		\[
+			\begin{aligned}
+				A \cap B &= A \cap C = B \cap C = \emptyset \\
+				&= 1 - 0.2 - 0.1 - 0.3 \\
+				&= \boxed{0.5}
+			\end{aligned}
+		\]
+\end{enumerate}
