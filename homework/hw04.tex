@@ -1,0 +1,140 @@
+\begin{center}
+  \section*{Homework 04 - 2.6, 2.7}
+  Due Mar 6 \\
+  Uzair Hamed Mohammed
+\end{center}
+
+% 6, 16, 18, 26, 38, 58
+% 6, 12, 20
+
+\subsection*{2.6 Combinatorics}
+\begin{enumerate}
+  \item[6.] A fast-food restaurant offers customers a choice of eight
+    toppings that can be added to a hamburger. How many different
+    hamburgers can be ordered?
+
+    \underline{Sol}: \(\boxed{2^8 = 256}\) different hamburgers can be
+    ordered since each topping can be added for two choices of each topping.
+
+  \item[16.] Monica’s vacation plans require that she fly from
+    Nashville to Chicago to Seattle to Anchorage. According to her
+    travel agent, there are three available flights from Nashville to
+    Chicago, five from Chicago to Seattle, and two from Seattle to
+    Anchorage. Assume that the numbers of options she has for return
+    flights are the same. How many round-trip itineraries can she schedule?
+
+    \underline{Sol}: On her departing trip, she can schedule \(3
+    \times 5 \times 2 = 30\) itineraries. On her way back, she can
+    schedule the same number. So, in total, she can schedule \(\boxed{30^2}\)
+    different round-trip itineraries.
+
+  \item[18.] How many ways can a set of four tires be put on a car if
+    all the tires are interchangeable? How many ways are possible if
+    two of the four are snow tires?
+
+    \underline{Sol}: \(_2 P_0 = 1\) if all the tires are
+    interchangeable, and we can select the location of the first snow
+    tire in four ways and the location of the second snow tire in
+    three ways to make a total of 12 ways in the second part.
+
+  \item[26.] A new horror movie, Friday the 13th, Part X, will star
+    Jason’s great-grandson (also named Jason) as a psychotic trying
+    to dispatch (as gruesomely as possible) eight camp counselors,
+    four men and four women. (a) How many scenarios (i.e., victim
+    orders) can the screenwriters devise, assuming they want Jason to
+    do away with all the men before going after any of the women? (b)
+    How many scripts are possible if the only restriction imposed on
+    Jason is that he save Muffy for last?
+
+    \begin{enumerate}
+      \item \underline{Sol}: There are \(4!\) ways to order the four
+        men and \(4!\)
+        ways to order the four women, meaning there are \(\boxed{4!
+        \times 4! = 576}\) scenarios where the men are dispatched
+        before the women.
+
+      \item \underline{Sol}: Since Muffy is fixed in the last
+        position, there are
+        \(7!\) ways to arrange the remaining seven camp counselors,
+        resulting in \(\boxed{7! = 5040}$ possible scripts
+      \end{enumerate}
+
+    \item[38.] How many ways can the letters in the word
+      \[
+        S L U M G U L L I O N
+      \]
+      be arranged so that the three L’s precede all the other consonants?
+
+      \underline{Sol}: There are \(\binom{11}{4} = 330\) ways to
+      choose the positions for the vowels and \(\frac{4!}{2!} = 12\)
+      ways to arrange the set \(\{U, U, I, O\}\). Since the three
+      \(L\)s must precede the other four consonants, they must occupy
+      the first three consonant positions in the sequence, leaving
+      \(4! = 24\) ways to arrange the remaining consonants (\(S, M,
+      G, N\)), resulting in a total of \(\boxed{330 \times 12 \times
+      24 = 95,040}\) arrangements.
+
+    \item[58.] Prove that
+      \[
+        \binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}
+      \]
+
+      \underline{Sol}: Expanding the right-hand side with factorials
+      gives $\frac{n!}{k!(n-k)!} + \frac{n!}{(k-1)!(n-k+1)!}$. By
+      using a common denominator of $k!(n-k+1)!$, we sum the
+      numerators to get $n!(n-k+1+k) = n!(n+1)$, which simplifies to
+      $\frac{(n+1)!}{k!(n+1-k)!} = \boxed{\binom{n+1}{k}}$.
+  \end{enumerate}
+
+  \subsection*{2.7 Combinatorial Probability}
+
+  \begin{enumerate}
+    \item[6.] A committee of fifty politicians is to be chosen from
+      among one hundered US senators. If the selection is done at
+      random, what is the probability that each state will be represented?
+
+      \underline{Sol}: We can choose 50 politicians in
+      \(\binom{100}{50}\) ways. For each state, we can choose one
+      representative in \(\binom{2}{1} = 2\) ways. In the end, we get
+      probability:
+
+      \[
+        \boxed{P = \frac{2^{50}}{\binom{100}{50}}}
+      \]
+
+    \item[12.] If the letters in the phrase
+      \[
+        A \ R O L L I N G \ S T O N E \ G A T H E R S \ N O \ M O S S
+      \]
+      are arranged at random, what are the chances that not all the Ss
+      will be adjacent?
+
+      First, we have the following amount of unique permutations of
+      all of the 26 letters:
+
+      \[
+        \frac{26!}{4!4!3!2!2!2!2!2!2!}
+      \]
+
+      Among these permutations, one is a subset contains all of the
+      Ss adjacent. We can order all of these in
+      \[
+        \boxed{\frac{(26 - 4 + 1)!}{1!4!3!2!2!2!2!2!2!}}
+      \]
+
+      different ways.
+
+    \item[20.] Five cards are dealt from a standard 52-card deck. What
+      is the probability that the sum of the faces on the five cards is
+      48 or more?
+
+      \underline{Sol}: In a standard 52-card deck, if we assign the
+      ranks Ace through King the values (1, 2, \(\dots\), 13), the total
+      number of ways to be dealt five cards is \(\binom{52}{5} =
+      2,598,960\). To find the number of hands where the sum of the
+      faces is 48 or more, we sum the combinations of ranks that
+      satisfy this condition (considering there are 4 of each rank).
+      There are (158,472) such combinations, making the probability:
+      $$P(\text{Sum} \geq 48) = \frac{158,472}{2,598,960} \approx
+      \boxed{0.061}$$
+  \end{enumerate}
