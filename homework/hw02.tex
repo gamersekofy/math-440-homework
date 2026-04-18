@@ -1,109 +1,168 @@
 \begin{center}
-	\section*{Homework 02 - 2.4}
-	Due Feb 20 \\
-	Uzair Hamed Mohammed
+  \section*{Homework 02 - 2.4}
+  Due Feb 20 \\
+  Uzair Hamed Mohammed
 \end{center}
 
 % 10, 20, 22, 30, 40, 46
 
 \begin{enumerate}
-	\item[10.] Suppose events A and B are such that $P(A \cap B) = 0.1$ and $P((A \cup B)^C) = 0.3$. If $P(A) = 0.2$, what does $P \lbrack (A \cap B) | (A \cup B)^C \rbrack$ equal?
-	
-		\underline{Sol}: \[
-			\begin{aligned}
-			P((A \cap B) | (A \cup B)^C) &= \frac{P((A \cap B) \cap (A \cup B)^C)}{P((A \cap B)^C)} \\
-			(A \cap B) \cap (A \cup B)^C &= \emptyset \\
-			P((A \cap B) \cap (A \cup B)^C) &= 0 \\
-			\boxed{P \lbrack (A \cap B) | (A \cup B)^C \rbrack = 0}
-			\end{aligned}
-		\]
-	
-	\item[20.] Andy, Bob, and Charley have all been serving time for grand theft auto. According to prison scuttlebutt, the warden plans to release two of the three next week. They all have identical records, so the two to be released will be chosen at random, meaning that each has a two-thirds probability of being included in the two to be set free. Andy, however, is friends with a guard who will know ahead of time which two will leave. He offers to tell Andy the name of one prisoner other than himself who will be released. Andy, however, declines the offer, believing that if he learns the name of one prisoner scheduled to be released, then his chances of being the other person set free will drop to one-half (since only two prisoners will be left at that point). Is his concern justified?
-	
-		\underline{Sol}:
-			Let A, B, and C be the events Andy, Bob, and Charley will be released respectively. Then:
-			\[
-				\begin{aligned}
-						P(A | B \cup C) &= \frac{P(A \cap (B \ cup C))}{P(B \cup C)} = \frac{P((A \cap B) \cup (A \cap C))}{P(B \cup C)} \\
-						&= \frac{P(\lbrace (1, 1, 0) \rbrace \cup \lbrace (1, 0, 1) \rbrace)}{P(\lbrace (0, 1, 1), (1, 1, 0), (1, 0, 1) \rbrace)} = \frac{\frac{2}{3}}{1} = \boxed{\frac{2}{3}}
-				\end{aligned}
-			\]
-	
-	\item[22.] A man has n keys on a key ring, one of which opens the door to his apartment. Having celebrated a bit too much one evening, he returns home only to find himself unable to distinguish one key from another. Resourceful, he works out a fiendishly clever plan: He will choose a key at random and try it. If it fails to open the door, he will discard it and choose at random one of the remaining $n-1$ keys, and so on. Clearly, the probability that he gains entrance with the first key he selects is $1/n$. Show that the probability the door opens with the third key he tries is also $1/n$. (Hint: What has to happen before he even gets to the third key?)
-	
-		\underline{Sol}: 
-			Let \(K_i\) = event key works on the \(i^{th}\) try:
-			\[
-				\begin{aligned}
-					P(K_3) &= P(K_1^C K_2^C K_3^C) \\
-					&= P(K_3 | K_1^C K_2^C) P(K_2^C | K_1^C) P(K_1^C) \\
-					&= \boxed{(\frac{n-1}{n})(\frac{n-2}{n-1})(\frac{1}{n-2}) = \frac{1}{n}}
-				\end{aligned}
-			\]
-	
-	\item[30.] Urn I contains three red chips and one white chip. Urn II contains two red chips and two white chips. One chip is drawn from each urn and transferred to the other urn. Then a chip is drawn from the first urn. What is the probability that the chip ultimately drawn from urn I is red?
-	
-		\underline{Sol}:
-			Let \(R_1\) be the event a red chip was drawn from urn 1. Let \(R_2\) be the event it was drawn from urn 2. Let \(R\) be the event it was drawn from urn 1 after the other two have been transferred:
-			
-			\[
-				\begin{aligned}
-				P = P(R | R_1, R_2) P(R_1, R_2) + \\ P(R | R_1, R_2^C) P(R_1, R_2^C) \\
-				+ P(R | R_1^C, R_2) + P(R | R_1^C, R^2_C) P(R_1^C, R_2^C) \\
-				= (\frac{3}{4})(\frac{3}{4})(\frac{2}{4}) + (\frac{2}{4})(\frac{3}{4})(\frac{2}{4}) + 1(\frac{1}{4})(\frac{2}{4}) + (\frac{3}{4})(\frac{1}{4})(\frac{2}{4}) = \boxed{0.69}
-				\end{aligned}
-			\]
-	
-	\item[40.] Urn I contains two white chips and one red chip; urn II has one white chip and two red chips. One chip is drawn at random from urn I and transferred to urn II. Then one chip is drawn from urn II. Suppose that a red chip is selected from urn II. What is the probability that the chip transferred was white?
-	
-		\underline{Sol}:
-			Let \(W\) be the event the white chip is transferred over, and \(W^C\) be the event the red chip is transferred over. Let D be the event we draw a red chip from urn number 2:
-				\[
-					\begin{aligned}
-						P(W|D) &= \frac{P(D|W) P(W)}{P(D|W) P(W) + P(D|W^C) P(W^C)} \\
-						&= \frac{(\frac{2}{4}) (\frac{2}{3})}{(\frac{2}{4}) (\frac{2}{3}) + (\frac{1}{4}) (\frac{1}{3})} \\
-						&= \boxed{\frac{4}{5}}
-					\end{aligned}
-				\]
-	
-	\item[46.] Brett and Margo have each thought about murdering their rich Uncle Basil in hopes of claiming their inheritance a bit early. Hoping to take advantage of Basil’s predilection for immoderate desserts, Brett has put rat poison into the cherries flamb\'{e}; Margo, unaware of Brett’s activities, has laced the chocolate mousse with cyanide. Given the amounts likely to be eaten, the probability of the rat poison being fatal is 0.60; the cyanide, 0.90. Based on other dinners where Basil was presented with the same dessert options, we can assume that he has a 50\% chance of asking for the cherries flamb\'{e}, a 40\% chance of ordering the chocolate mousse, and a 10\% chance of skipping dessert altogether. No sooner are the dishes cleared away than Basil drops dead. In the absence of any other evidence, who should be considered the prime suspect?
+  \item[10.] Suppose events A and B are such that $P(A \cap B) = 0.1$
+    and $P((A \cup B)^C) = 0.3$. If $P(A) = 0.2$, what does $P
+    \lbrack (A \cap B) | (A \cup B)^C \rbrack$ equal?
 
-		\underline{Sol}:
-		Let's define some events:
-			\begin{enumerate}
-				\item F: Uncle Basil will die
-				\item C: Uncle Basil chooses cherries flamb\'{e}
-				\item M: Uncle Basil chooses chocolate mousse
-				\item N: Uncle Basil chooses no dessert
-			\end{enumerate}
-			
-		We know:
-			\begin{enumerate}
-				\item \(P(F|C) = 0.6\)
-				\item \(P(F|M) = 0.9\)
-				\item \(P(C) = 0.5\)
-				\item \(P(M) = 0.4\)
-				\item \(P(N) = 0.1\)
-			\end{enumerate}
-		
-		So...
-		\[
-			\begin{aligned}
-				P(C | F) &= \frac{P(F|C) P(C)}{P(F|C)P(C)+P(F|M)P(M)+P(F|N)P(N)} \\
-				&= \frac{(0.6)(0.5)}{(0.6)(0.5)+(0.9)(0.4)+0} \\
-				&= \boxed{0.45}
-			\end{aligned}
-		\]
-		
-		and..
-		
-		\[
-			\begin{aligned}
-				P(M|F) &= \frac{P(F|M)P(M)}{P(F|C)P(C)+P(F|M)P(M)+P(F|N)P(N)} \\
-				&= \frac{(0.9)(0.4)}{(0.6)(0.5) + (0.9)(0.4) + 0} \\
-				&= \boxed{0.55}
-			\end{aligned}
-		\]
-		
-		Therefore, we can conclude that the chocolate mousse is most likely to be picked and Margo will be the suspect.
+    \underline{Sol}: \[
+      \begin{aligned}
+        P((A \cap B) | (A \cup B)^C) &= \frac{P((A \cap B) \cap (A
+        \cup B)^C)}{P((A \cap B)^C)} \\
+        (A \cap B) \cap (A \cup B)^C &= \emptyset \\
+        P((A \cap B) \cap (A \cup B)^C) &= 0 \\
+        \boxed{P \lbrack (A \cap B) | (A \cup B)^C \rbrack = 0}
+      \end{aligned}
+    \]
+
+  \item[20.] Andy, Bob, and Charley have all been serving time for
+    grand theft auto. According to prison scuttlebutt, the warden
+    plans to release two of the three next week. They all have
+    identical records, so the two to be released will be chosen at
+    random, meaning that each has a two-thirds probability of being
+    included in the two to be set free. Andy, however, is friends
+    with a guard who will know ahead of time which two will leave. He
+    offers to tell Andy the name of one prisoner other than himself
+    who will be released. Andy, however, declines the offer,
+    believing that if he learns the name of one prisoner scheduled to
+    be released, then his chances of being the other person set free
+    will drop to one-half (since only two prisoners will be left at
+    that point). Is his concern justified?
+
+    \underline{Sol}:
+    Let A, B, and C be the events Andy, Bob, and Charley will be
+    released respectively. Then:
+    \[
+      \begin{aligned}
+        P(A | B \cup C) &= \frac{P(A \cap (B \ cup C))}{P(B \cup C)}
+        = \frac{P((A \cap B) \cup (A \cap C))}{P(B \cup C)} \\
+        &= \frac{P(\lbrace (1, 1, 0) \rbrace \cup \lbrace (1, 0, 1)
+        \rbrace)}{P(\lbrace (0, 1, 1), (1, 1, 0), (1, 0, 1) \rbrace)}
+        = \frac{\frac{2}{3}}{1} = \boxed{\frac{2}{3}}
+      \end{aligned}
+    \]
+
+  \item[22.] A man has n keys on a key ring, one of which opens the
+    door to his apartment. Having celebrated a bit too much one
+    evening, he returns home only to find himself unable to
+    distinguish one key from another. Resourceful, he works out a
+    fiendishly clever plan: He will choose a key at random and try
+    it. If it fails to open the door, he will discard it and choose
+    at random one of the remaining $n-1$ keys, and so on. Clearly,
+    the probability that he gains entrance with the first key he
+    selects is $1/n$. Show that the probability the door opens with
+    the third key he tries is also $1/n$. (Hint: What has to happen
+    before he even gets to the third key?)
+
+    \underline{Sol}:
+    Let \(K_i\) = event key works on the \(i^{th}\) try:
+    \[
+      \begin{aligned}
+        P(K_3) &= P(K_1^C K_2^C K_3^C) \\
+        &= P(K_3 | K_1^C K_2^C) P(K_2^C | K_1^C) P(K_1^C) \\
+        &= \boxed{(\frac{n-1}{n})(\frac{n-2}{n-1})(\frac{1}{n-2}) = \frac{1}{n}}
+      \end{aligned}
+    \]
+
+  \item[30.] Urn I contains three red chips and one white chip. Urn
+    II contains two red chips and two white chips. One chip is drawn
+    from each urn and transferred to the other urn. Then a chip is
+    drawn from the first urn. What is the probability that the chip
+    ultimately drawn from urn I is red?
+
+    \underline{Sol}:
+    Let \(R_1\) be the event a red chip was drawn from urn 1. Let
+    \(R_2\) be the event it was drawn from urn 2. Let \(R\) be the
+    event it was drawn from urn 1 after the other two have been transferred:
+
+    \[
+      \begin{aligned}
+        P = P(R | R_1, R_2) P(R_1, R_2) + \\ P(R | R_1, R_2^C) P(R_1, R_2^C) \\
+        + P(R | R_1^C, R_2) + P(R | R_1^C, R^2_C) P(R_1^C, R_2^C) \\
+        = (\frac{3}{4})(\frac{3}{4})(\frac{2}{4}) +
+        (\frac{2}{4})(\frac{3}{4})(\frac{2}{4}) +
+        1(\frac{1}{4})(\frac{2}{4}) +
+        (\frac{3}{4})(\frac{1}{4})(\frac{2}{4}) = \boxed{0.69}
+      \end{aligned}
+    \]
+
+  \item[40.] Urn I contains two white chips and one red chip; urn II
+    has one white chip and two red chips. One chip is drawn at random
+    from urn I and transferred to urn II. Then one chip is drawn from
+    urn II. Suppose that a red chip is selected from urn II. What is
+    the probability that the chip transferred was white?
+
+    \underline{Sol}:
+    Let \(W\) be the event the white chip is transferred over, and
+    \(W^C\) be the event the red chip is transferred over. Let D be
+    the event we draw a red chip from urn number 2:
+    \[
+      \begin{aligned}
+        P(W|D) &= \frac{P(D|W) P(W)}{P(D|W) P(W) + P(D|W^C) P(W^C)} \\
+        &= \frac{(\frac{2}{4}) (\frac{2}{3})}{(\frac{2}{4})
+        (\frac{2}{3}) + (\frac{1}{4}) (\frac{1}{3})} \\
+        &= \boxed{\frac{4}{5}}
+      \end{aligned}
+    \]
+
+  \item[46.] Brett and Margo have each thought about murdering their
+    rich Uncle Basil in hopes of claiming their inheritance a bit
+    early. Hoping to take advantage of Basil’s predilection for
+    immoderate desserts, Brett has put rat poison into the cherries
+    flamb\'{e}; Margo, unaware of Brett’s activities, has laced the
+    chocolate mousse with cyanide. Given the amounts likely to be
+    eaten, the probability of the rat poison being fatal is 0.60; the
+    cyanide, 0.90. Based on other dinners where Basil was presented
+    with the same dessert options, we can assume that he has a 50\%
+    chance of asking for the cherries flamb\'{e}, a 40\% chance of
+    ordering the chocolate mousse, and a 10\% chance of skipping
+    dessert altogether. No sooner are the dishes cleared away than
+    Basil drops dead. In the absence of any other evidence, who
+    should be considered the prime suspect?
+
+    \underline{Sol}:
+    Let's define some events:
+    \begin{enumerate}
+      \item F: Uncle Basil will die
+      \item C: Uncle Basil chooses cherries flamb\'{e}
+      \item M: Uncle Basil chooses chocolate mousse
+      \item N: Uncle Basil chooses no dessert
+    \end{enumerate}
+
+    We know:
+    \begin{enumerate}
+      \item \(P(F|C) = 0.6\)
+      \item \(P(F|M) = 0.9\)
+      \item \(P(C) = 0.5\)
+      \item \(P(M) = 0.4\)
+      \item \(P(N) = 0.1\)
+    \end{enumerate}
+
+    So...
+    \[
+      \begin{aligned}
+        P(C | F) &= \frac{P(F|C) P(C)}{P(F|C)P(C)+P(F|M)P(M)+P(F|N)P(N)} \\
+        &= \frac{(0.6)(0.5)}{(0.6)(0.5)+(0.9)(0.4)+0} \\
+        &= \boxed{0.45}
+      \end{aligned}
+    \]
+
+    and..
+
+    \[
+      \begin{aligned}
+        P(M|F) &= \frac{P(F|M)P(M)}{P(F|C)P(C)+P(F|M)P(M)+P(F|N)P(N)} \\
+        &= \frac{(0.9)(0.4)}{(0.6)(0.5) + (0.9)(0.4) + 0} \\
+        &= \boxed{0.55}
+      \end{aligned}
+    \]
+
+    Therefore, we can conclude that the chocolate mousse is most
+    likely to be picked and Margo will be the suspect.
 \end{enumerate}

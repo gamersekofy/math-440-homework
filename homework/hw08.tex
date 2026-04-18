@@ -1,0 +1,108 @@
+\begin{center}
+  \section*{Homework 08 - 3.7}
+  Due Apr 17 \\
+  Uzair Hamed Mohammed
+\end{center}
+
+% 12, 14, 22, 30, 36, 42, 52
+
+\begin{enumerate}
+  \item[12.] A point is chosen at random from the interior of a
+    circle whose equation is \(x^2 + y^2 \leq 4\). Let the random
+    variables X and Y denote the x- and y-coordinates of the sampled
+    point. Find \(f_{X,Y} (x, y)\).
+
+    \underline{Sol}: \\
+    \[
+      f_{X,Y}(x,y) =
+      \begin{cases}
+        \frac{1}{4\pi}, & x^2 + y^2 \le 4 \\
+        0, & \text{otherwise}
+      \end{cases}
+    \]
+
+  \item[14.] Suppose that five independent observations are drawn
+    from the continuous pdf \(f_T(t) = 2t, 0 \leq t \leq 1\). Let X
+    denote the number of t’s that fall in the interval \(0 \leq t <
+    \frac{1}{3}\) and let Y denote the number of t’s that fall in the
+    interval \(\frac{1}{3} \leq t < \frac{2}{3}\). Find \(p_{X,Y}(1, 2)\).
+
+    \underline{Sol}: \\
+    \[
+      p_{X,Y}(1,2) =
+      \frac{5!}{1!\,2!\,2!}\left(\frac{1}{9}\right)^1\left(\frac{1}{3}\right)^2\left(\frac{5}{9}\right)^2
+      = 30 \cdot \frac{1}{9} \cdot \frac{1}{9} \cdot \frac{25}{81} =
+      \frac{250}{2187}
+    \]
+
+
+  \item[22.] Find \(f_Y (y)\) if \(f_{X, Y} (x, y) = 2e^{-x} e^{-y}\)
+    for x and y defined over the shaded region pictured.
+
+    \underline{Sol}: \\
+    \[
+      f_Y(y) =
+      \begin{cases}
+        2e^{-y} - 2e^{-2y}, & y > 0 \\
+        0, & \text{otherwise}
+      \end{cases}
+    \]
+
+  \item[30.] Find the joint pdf associated with two random variables
+    X and Y whose joint cdf is
+
+    \[
+      F_{X, Y} (x, y) = (1 - e^{- \lambda y}) (1 - e^{- \lambda x}),
+      x > 0, y > 0
+    \]
+
+    \underline{Sol}: \\
+    \[
+      f_{X,Y}(x,y) =
+      \begin{cases}
+        \lambda^2 e^{-\lambda(x+y)}, & x>0,\ y>0 \\
+        0, & \text{otherwise}
+      \end{cases}
+    \]
+
+  \item[36.] Suppose that the random variables X, Y, and Z have the
+    multivariate pdf
+
+    \[
+      f_{X, Y, Z} (x, y, z) = (x + y)e^{-z}
+    \]
+
+    for \(0 < x < 1, 0 < y < 1\), and \(z > 0\). Find:
+    \begin{enumerate}
+      \item \(f_{X, Y} (x, y)\)
+      \item \(f_{Y, Z} (y, z)\)
+      \item \(f_Z (z)\)
+    \end{enumerate}
+
+    \underline{Sol}: \\
+    \[
+      \begin{aligned}
+        \text{(a)}&\quad f_{X,Y}(x,y) = x+y,\quad 0<x<1,\ 0<y<1 \\
+        \text{(b)}&\quad f_{Y,Z}(y,z) =
+        \left(y+\frac12\right)e^{-z},\quad 0<y<1,\ z>0 \\
+        \text{(c)}&\quad f_Z(z) = e^{-z},\quad z>0
+      \end{aligned}
+    \]
+
+  \item[42.] Are the random variables X and Y independent if \(f_{X,
+    Y} (x, y) = \frac{2}{3} (x + 2y), 0 \leq x \leq 1, 0 \leq y \leq 1\)?
+
+    \underline{Sol}: \\
+
+    No, since \(f_{X, Y} (x, y) \ne f_X(x) f_Y(y)\)
+
+  \item[52.] A random sample size of \(n = 2k\) is taken from a
+    uniform pdf defined over the unit interval. Calculate \( P(X_1 <
+        \frac{1}{2}, X_2 > \frac{1}{2}, X_3 < \frac{1}{2}, X_4 >
+    \frac{1}{2}, \dots X_{2k} > \frac{1}{2}) \)
+
+    \underline{Sol}: \\
+    \[
+      P = \left(\frac{1}{2}\right)^{2k} = \frac{1}{4^k}
+    \]
+\end{enumerate}
