@@ -1,0 +1,112 @@
+\begin{center}
+	\section*{Homework 09 - 3.8, 3.9}
+	Due Apr 24 \\
+	Uzair Hamed Mohammed
+\end{center}
+
+% 3.8 - 2, 6, 8
+% 3.9 - 4, 10, 14, 20
+
+\subsection*{3.8 Transforming and Combining Random Variables}
+
+\begin{enumerate}
+	\item[2.] Let \(f_Y(y) = \frac{3}{14} (1 + y^2), 0 \leq y \leq 2\). Define the random variable W by \(W = 3Y + 2\). Find \(f_W(w)\). Be sure to specify the values of w for which \(f_W(w) \ne 0\).
+
+	      \underline{Sol}: \\
+	      \[
+		      \begin{aligned}
+			       & \textrm{Given } f_Y(y) = \frac{3}{14}(1+y^2),\ 0\leq y\leq 2.                 \\
+			       & W = 3Y+2 \;\Longrightarrow\; Y = \frac{W-2}{3},\quad \frac{dy}{dw} = \frac13. \\
+			       & f_W(w) = f_Y\!\left(\frac{w-2}{3}\right)\left|\frac{dy}{dw}\right|            \\
+			       & = \frac{3}{14}\left(1+\left(\frac{w-2}{3}\right)^2\right)\cdot\frac13         \\
+			       & = \frac{1}{14}\left(1+\frac{(w-2)^2}{9}\right)                                \\
+			       & = \frac{1}{14}\cdot\frac{9+(w-2)^2}{9}                                        \\
+			       & = \frac{1}{126}\bigl(9+(w-2)^2\bigr),\quad 2\leq w\leq 8.
+		      \end{aligned}
+	      \]
+
+	\item[6.] If a random variable V is independent of two independent random variables X and Y, prove that B is independent of X + Y.
+
+	      \underline{Sol}: \\
+	      \[
+		      \text{Given } V \perp X,\; V \perp Y,\; X \perp Y. \text{ Show } V \perp (X+Y).
+	      \]
+	      \[
+		      \forall u,v:\; P(V \leq v, X+Y \leq u) = \int_{-\infty}^{\infty} P(X+Y \leq u \mid V=t) f_V(t) dt.
+	      \]
+	      \[
+		      \text{Since } V \perp (X,Y),\ (X,Y) \text{ independent of } V, \text{ so } P(X+Y \leq u \mid V=t)=P(X+Y \leq u).
+	      \]
+	      \[
+		      \therefore P(V \leq v, X+Y \leq u)=P(X+Y \leq u) P(V \leq v).
+	      \]
+	      Thus \(V\) independent of \(X+Y\). (The conclusion holds for \(B=V\).)
+
+	\item[8.] Let Y be a uniform random variable over the interval \(\lbrack 0, 1 \rbrack\). Find the pdf of \(W = Y^2\).
+
+	      \underline{Sol}: \\
+	      \[
+		      \begin{aligned}
+			       & \text{Let } Y\sim U(0,1),\; F_Y(y)=y,\; f_Y(y)=1.          \\
+			       & W=Y^2,\; w\in(0,1).                                        \\
+			       & F_W(w)=P(W\leq w)=P(Y^2\leq w)=P(Y\leq\sqrt{w})=\sqrt{w}.  \\
+			       & f_W(w)=\frac{d}{dw}F_W(w)=\frac{1}{2\sqrt{w}},\quad 0<w<1.
+		      \end{aligned}
+	      \]
+\end{enumerate}
+
+\subsection*{3.9 Further Properties of the Mean and Variance}
+
+\begin{enumerate}
+	\item[4.] Marksmanship competition at a certain level requires each contestant to take ten shots with each of two different handguns. Final scores are computed by taking a weighted average of four times the number of bull’s-eyes made with the first gun plus six times the number gotten with the second. If Cathie has a 30\% chance of hitting the bull’s-eye with each shot from the first gun and a 40\% chance with each shot from the second gun, what is her expected score?
+
+	      \underline{Sol}: \\
+
+	      \[
+		      E[X]=10\cdot0.3=3,\quad E[Y]=10\cdot0.4=4
+	      \]
+	      \[
+		      E[\text{Score}]=4E[X]+6E[Y]=4\cdot3+6\cdot4=12+24=36
+	      \]
+
+	\item[10.] Suppose that X and Y are both uniformly distributed over the interval \(\lbrack 0, 1 \rbrack\). Calculate the expected value of the square of the distance of the random point (X,Y) from the origin; that is, find \(E(X^2 + Y^2)\).
+
+	      \underline{Sol}: \\
+	      \[
+		      \begin{aligned}
+			       & X,Y\sim U(0,1),\text{ independent}.                     \\
+			       & E(X^2)=\int_0^1 x^2\,dx = \frac13,\quad E(Y^2)=\frac13. \\
+			       & E(X^2+Y^2)=E(X^2)+E(Y^2)=\frac13+\frac13=\frac23.
+		      \end{aligned}
+	      \]
+
+	\item[14.] Show that
+	      \[
+		      \textrm{Cov}(aX + b, cY + d) = ac \textrm{Cov}(X, Y)
+	      \]
+
+	      for any constants a, b, c, and d.
+
+	      \underline{Sol}: \\
+
+	      \[
+		      \begin{aligned}
+			      \operatorname{Cov}(aX+b, cY+d) & = E\big[((aX+b)-E[aX+b])((cY+d)-E[cY+d])\big] \\
+			                                     & = E\big[(aX+b - aE[X]-b)(cY+d - cE[Y]-d)\big] \\
+			                                     & = E\big[a(X-E[X])\cdot c(Y-E[Y])\big]         \\
+			                                     & = ac\,E\big[(X-E[X])(Y-E[Y])\big]             \\
+			                                     & = ac\operatorname{Cov}(X,Y).
+		      \end{aligned}
+	      \]
+
+	\item[20.] Let X be binomial random variable based on n trials and a success probability of \(p_X\); let Y be an independent binomial random variable based on m trials and a success probability of \(p_Y\). Find \(E(W)\) and \(\textrm{Var}(W)\), where \(W = 4X + 6Y\).
+
+	      \underline{Sol}: \\
+
+	      \[
+		      \begin{aligned}
+			      E(W)                  & = 4n p_X + 6m p_Y,                 \\
+			      \operatorname{Var}(W) & = 16n p_X(1-p_X) + 36m p_Y(1-p_Y).
+		      \end{aligned}
+	      \]
+\end{enumerate}
