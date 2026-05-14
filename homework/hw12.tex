@@ -1,0 +1,192 @@
+\begin{center}
+	\section*{Homework 12 - 4.2, 4.3}
+	Due May 16 \\
+	Uzair Hamed Mohammed
+\end{center}
+
+% 4, 6, 18, 24, 28
+% 10, 18, 26, 34, 36
+
+\subsection*{4.2 The Poisson Distribution}
+\begin{enumerate}
+	\item[4.] A chromosome mutation linked with colorblindness is known to occur, on the average, once in every ten thousand births.
+	      \begin{enumerate}
+		      \item Approximate the probability that exactly three of the next twenty thousand babies born will have the mutation.
+		      \item How many babies out of the next twenty thousand would have to be born with the mutation to convince you that the “one in ten thousand” estimate is too low?
+	      \end{enumerate}
+
+	      \underline{Sol}: \\
+
+	      \noindent Let $p = 1/10000$, $n=20000$, so $\lambda = np = 2$.
+
+	      \begin{enumerate}
+		      \item $P(X=3) \approx e^{-2} \frac{2^3}{3!} = \frac{4}{3}e^{-2} \approx 0.1804$.
+		      \item Find smallest $k$ with $P(X \ge k \mid \lambda=2) \le 0.05$:
+		            $P(X\ge5)=0.0527>0.05$, $P(X\ge6)=0.0166<0.05$ $\Rightarrow$ $k=6$.
+	      \end{enumerate}
+
+	      \[
+		      \boxed{\text{(a) } \frac{4}{3}e^{-2} \approx 0.1804 \qquad \text{(b) } 6}
+	      \]
+
+	\item[6.] A newly formed life insurance company has underwritten term policies on 120 women between the ages of forty and forty-four. Suppose that each woman has a 1/150 probability of dying during the next calendar year, and that each death requires the company to pay out \$50,000 in benefits. Approximate the probability that the company will have to pay at least \$150,000 in benefits next year.
+
+	      \underline{Sol}: \\
+
+	      Let \(X\) be number of deaths. \(X \sim \mathrm{Binomial}(n=120, p=1/150)\).
+	      \(\lambda = np = 120/150 = 0.8\).
+	      Required probability: \(P(X \ge 3) = 1 - P(X=0) - P(X=1) - P(X=2)\).
+	      Poisson approximation:
+	      \begin{align*}
+		      P(X=0) & = e^{-0.8} \approx 0.449329,                                 \\
+		      P(X=1) & = 0.8 e^{-0.8} \approx 0.359463,                             \\
+		      P(X=2) & = \frac{0.8^2}{2} e^{-0.8} = 0.32 e^{-0.8} \approx 0.143785.
+	      \end{align*}
+	      Sum \(\approx 0.952577\), so \(P(X \ge 3) \approx 0.047423\).
+	      \[
+		      \boxed{0.0474}
+	      \]
+
+	\item[18.] Assume that the number of hits, X, that a baseball team makes in a nine-inning game has a Poisson distribution. If the probability that a team makes zero hits is \(\frac13\), what are their chances of getting two or more hits?
+
+	      \underline{Sol}: \\
+
+	      Let \(X \sim \text{Poisson}(\lambda)\). Given \(P(X=0) = \frac13\). Then \(e^{-\lambda} = \frac13\) implies \(\lambda = \ln 3\).
+	      \[
+		      P(X \ge 2) = 1 - P(X=0) - P(X=1) = 1 - \frac13 - \lambda e^{-\lambda} = 1 - \frac13 - \frac{\ln 3}{3} = \frac{2 - \ln 3}{3}.
+	      \]
+	      \[
+		      \boxed{\dfrac{2 - \ln 3}{3}}
+	      \]
+
+	\item[24.] Let X and Y be independent Poisson random variables with parameters \(\lambda\) and \(\mu\) respectively. Example 3.12.10 established that X + Y  is also Poisson with parameter \(\lambda + \mu\). Prove that same result using Theorem 3.8.3.
+
+	      \underline{Sol}: \\
+
+	      Let \(M_X(t) = e^{\lambda(e^t - 1)}\) and \(M_Y(t) = e^{\mu(e^t - 1)}\) be the moment generating functions of \(X\) and \(Y\). By independence and Theorem 3.8.3,
+	      \[
+		      M_{X+Y}(t) = M_X(t) M_Y(t) = e^{\lambda(e^t - 1)} e^{\mu(e^t - 1)} = e^{(\lambda+\mu)(e^t - 1)},
+	      \]
+	      which is the mgf of a Poisson random variable with parameter \(\lambda+\mu\). Uniqueness of mgf implies \(X+Y \sim \text{Poisson}(\lambda+\mu)\).
+
+	      \[
+		      \boxed{X+Y \sim \text{Poisson}(\lambda+\mu)}
+	      \]
+
+	\item[28.] Fifty spotlights have just been installed in an outdoor security system. According to the manufacturer’s specifications, these particular lights are expected to burn out at the rate of 1.1 per one hundred hours. What is the expected number of bulbs that will fail to last for at least seventy-five hours?
+
+	      \underline{Sol}: \\
+
+	      The burn-out rate is \(1.1\) per \(100\) hours, so the hazard rate \(\lambda = \frac{1.1}{100} = 0.011\) per hour.
+	      Lifetime \(T \sim \text{Exponential}(\lambda)\).
+	      Probability a bulb fails within \(75\) hours:
+	      \[
+		      P(T \le 75) = 1 - e^{-\lambda \cdot 75} = 1 - e^{-0.011 \times 75} = 1 - e^{-0.825}.
+	      \]
+	      Expected number of failures among \(50\) bulbs:
+	      \[
+		      50 \left(1 - e^{-0.825}\right) \approx 50 \times 0.5617 = 28.085.
+	      \]
+	      \[
+		      \boxed{50\left(1 - e^{-0.825}\right) \approx 28.1}
+	      \]
+\end{enumerate}
+
+\subsection*{4.3 The Normal Distribution}
+% 10, 18, 26, 34, 36
+
+\begin{enumerate}
+	\item[10.] State Tech's basketball team, the Fighting Logarithms, have a 70\% foul-shooting percentage.
+	      \begin{enumerate}
+		      \item Write a formula for the exact probability that out of their next one hundered free throws, they will make between seventy-five and eighty, inclusive.
+
+		            \underline{Sol}: \\
+
+		            \[
+			            P(75 \le X \le 80) = \sum_{k=75}^{80} \binom{100}{k} (0.7)^k (0.3)^{100-k}.
+		            \]
+
+
+		      \item Approximate the probability asked for in the above part.
+
+		            \underline{Sol}: \\
+
+		            \[
+			            \begin{aligned}
+				            P(75 \le X \le 80) & \approx \Phi\left(\frac{80.5-70}{\sqrt{21}}\right) - \Phi\left(\frac{74.5-70}{\sqrt{21}}\right) \\
+				                               & = \Phi(2.2913) - \Phi(0.9820)                                                                   \\
+				                               & = \approx 0.9890 - 0.8365 = \boxed{0.1525}.
+			            \end{aligned}
+		            \]
+	      \end{enumerate}
+
+	\item[18.] Suppose \(X_1, X_2, X_3, \textrm{ and } X_4\) are independent Poisson random variables each with parameter \(\lambda = 3\). Let \(S = X_1 + X_2 + X_3 + X_4\)
+	      \begin{enumerate}
+		      \item Use the Central Limit Theorem to approximate the probability that \(13 \leq S \leq 14\).
+
+		            \underline{Sol}: \\
+
+		            \[
+			            \begin{aligned}
+				            P(13 \le S \le 14) & \approx \Phi\left(\frac{14.5-12}{\sqrt{12}}\right) - \Phi\left(\frac{12.5-12}{\sqrt{12}}\right) \\
+				                               & = \Phi(0.7217) - \Phi(0.1443)                                                                   \\
+				                               & \approx 0.7642 - 0.5574 = \boxed{0.2068}.
+			            \end{aligned}
+		            \]
+
+		      \item Calculate the exact probability that \(13 \leq S \leq 14\).
+
+		            \underline{Sol}: \\
+
+		            \[
+			            P(13 \le S \le 14) = e^{-12}\left(\frac{12^{13}}{13!} + \frac{12^{14}}{14!}\right) \approx 0.1056 + 0.0905 = \boxed{0.1961}.
+		            \]
+	      \end{enumerate}
+
+	\item[26.] The cross-sectional area of plastic tubing for use in pulmonary resuscitators is normally distributed with \(\mu = 12.5 mm^2\) and \(\sigma = 0.2 mm^2\). When the area is less than \(12.0 mm^2\) or greater than \(13.0 mm^2\), the tube does not fit properly. If the tubes are shipped in boxes of one thousand, how many wrong-sized tubes per box can doctors expect to find?
+
+	      \underline{Sol}: \\
+
+	      Let \(X \sim \mathcal{N}(12.5, 0.2^2)\).
+	      Defective if \(X < 12\) or \(X > 13\).
+	      \[
+		      z_1 = \frac{12 - 12.5}{0.2} = -2.5, \quad z_2 = \frac{13 - 12.5}{0.2} = 2.5.
+	      \]
+	      \[
+		      P(\text{defective}) = \Phi(-2.5) + [1 - \Phi(2.5)] = 2\Phi(-2.5) = 2(0.00621) = 0.01242.
+	      \]
+	      Expected number in box of 1000: \(1000 \times 0.01242 = 12.42\).
+
+	      \[
+		      \boxed{12.42}
+	      \]
+
+	\item[34.] Let \(Y_1, Y_2, \dots,Y_n\) be a random sample from a normal distribution where the mean is 2 and the variance is 4. How large must n be in order that
+	      \[
+		      P(1.9 \leq \bar{Y} \leq 2.1) \geq 0.99
+	      \]
+
+	      \underline{Sol}: \\
+
+	      Given \(\bar{Y} \sim \mathcal{N}\left(2, \frac{4}{n}\right)\). Then
+	      \[
+		      P(1.9 \le \bar{Y} \le 2.1) = P\left( \frac{1.9-2}{2/\sqrt{n}} \le Z \le \frac{2.1-2}{2/\sqrt{n}} \right) = P\left( |Z| \le 0.05\sqrt{n} \right).
+	      \]
+	      Require \(2\Phi(0.05\sqrt{n}) - 1 \ge 0.99\) \(\Rightarrow\) \(\Phi(0.05\sqrt{n}) \ge 0.995\) \(\Rightarrow\) \(0.05\sqrt{n} \ge z_{0.005} = 2.576\).
+	      \[
+		      \sqrt{n} \ge \frac{2.576}{0.05} = 51.52 \quad \Rightarrow \quad n \ge (51.52)^2 = 2654.79.
+	      \]
+	      Thus \(\boxed{n = 2655}\).
+
+	\item[36.] The cylinders and pistons for a certain internal combustion engine are manufactured by a process that gives a normal distribution of cylinder diameters with a mean of 41.5 cm and a standard deviation of 0.4 cm. Similarly, the distribution of piston diameters is normal with a mean of 40.5 cm and a standard deviation of 0.3 cm. If the piston diameter is greater than the cylinder diameter, the former can be reworked until the two “fit.” What proportion of cylinder-piston pairs will need to be reworked?
+
+	      \underline{Sol}: \\
+
+	      Let \(X \sim \mathcal{N}(41.5, 0.4^2)\) (cylinder), \(Y \sim \mathcal{N}(40.5, 0.3^2)\) (piston), independent.
+	      Difference \(D = Y - X \sim \mathcal{N}(-1, 0.4^2+0.3^2) = \mathcal{N}(-1, 0.25)\).
+	      Need \(P(Y > X) = P(D > 0) = P\left(Z > \frac{0 - (-1)}{0.5}\right) = P(Z > 2) = 1 - \Phi(2) \approx 0.0228\).
+
+	      \[
+		      \boxed{0.0228}
+	      \]
+\end{enumerate}
